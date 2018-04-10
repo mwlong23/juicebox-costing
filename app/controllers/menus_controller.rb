@@ -1,4 +1,5 @@
 class MenusController < ApplicationController
+  attr_accessor :name, :season
   before_action :set_menu, only: [:show, :edit, :update, :destroy]
 
   # GET /menus
@@ -69,6 +70,6 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.fetch(:menu, {})
+      params.permit(:name,:season)
     end
 end
